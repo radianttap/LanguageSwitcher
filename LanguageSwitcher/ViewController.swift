@@ -36,6 +36,30 @@ final class ViewController: UIViewController {
 	@IBAction func dismissKeyboard(_ sender: Any) {
 		textField.resignFirstResponder()
 	}
+
+	@IBAction func changeLanguage(_ sender: UIButton) {
+		if sender == currentBtn { return }
+
+		currentBtn.backgroundColor = nil
+
+		switch sender {
+		case gbBtn, usBtn:
+			Locale.updateLanguage(code: "en")
+		case frBtn:
+			Locale.updateLanguage(code: "fr")
+		case deBtn:
+			Locale.updateLanguage(code: "de")
+		case rsBtn:
+			Locale.updateLanguage(code: "sr")
+		case ilBtn:
+			Locale.updateLanguage(code: "he")
+		default:
+			break
+		}
+
+		currentBtn = sender
+		currentBtn.backgroundColor = .white
+	}
 }
 
 fileprivate extension ViewController {
