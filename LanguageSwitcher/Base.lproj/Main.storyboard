@@ -92,31 +92,84 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYL-0J-zkb">
-                                <rect key="frame" x="70.5" y="148.5" width="70" height="14.5"/>
+                                <rect key="frame" x="234" y="148.5" width="70" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an example of some longer text. If it sounds weird in your language, it's Google's fault." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-dj-TBX">
-                                <rect key="frame" x="24" y="179" width="327" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-dj-TBX">
+                                <rect key="frame" x="24" y="187" width="327" height="64.5"/>
+                                <string key="text">This is an example of some longer text.
+If it sounds weird in your language, it's Google's fault.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Decimal number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-dI-wh1">
+                                <rect key="frame" x="24" y="272.5" width="85.5" height="13.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-xg-iFk">
+                                <rect key="frame" x="24" y="294" width="85.5" height="36"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="wBX-bD-Wwp"/>
+                                    <constraint firstAttribute="height" constant="36" id="zJe-lj-vrJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zG-Pk-omS">
+                                <rect key="frame" x="117.5" y="301.5" width="194" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="5.15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgq-7v-Evn">
+                                <rect key="frame" x="319.5" y="294" width="31.5" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQM-dC-p0n">
+                                <rect key="frame" x="24" y="346" width="327" height="106"/>
+                                <string key="text">The decimal example above shows how current language / country influences the conversion from String to Double.
+It also shows how the DecimalPad keyboard type changes its decimal separator as you switch languages</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Rgq-7v-Evn" firstAttribute="centerY" secondItem="GAa-xg-iFk" secondAttribute="centerY" id="022-fd-baU"/>
                             <constraint firstItem="cZY-t8-VWT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="1Ft-e7-61b"/>
+                            <constraint firstItem="3zG-Pk-omS" firstAttribute="centerY" secondItem="GAa-xg-iFk" secondAttribute="centerY" id="1NF-TJ-eeh"/>
                             <constraint firstItem="kzi-f2-zrF" firstAttribute="top" secondItem="cZY-t8-VWT" secondAttribute="bottom" constant="25" id="5Ow-P0-OKk"/>
+                            <constraint firstItem="BQM-dC-p0n" firstAttribute="top" secondItem="GAa-xg-iFk" secondAttribute="bottom" constant="16" id="6yJ-ap-0TF"/>
+                            <constraint firstItem="Rgq-7v-Evn" firstAttribute="leading" secondItem="3zG-Pk-omS" secondAttribute="trailing" constant="8" id="82t-0q-Fqz"/>
+                            <constraint firstItem="Rgq-7v-Evn" firstAttribute="trailing" secondItem="ZpA-dj-TBX" secondAttribute="trailing" id="8Zk-JP-geB"/>
                             <constraint firstItem="ZpA-dj-TBX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Fpg-qb-d63"/>
+                            <constraint firstItem="3zG-Pk-omS" firstAttribute="leading" secondItem="GAa-xg-iFk" secondAttribute="trailing" constant="8" id="H7S-tC-caq"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cZY-t8-VWT" secondAttribute="trailing" id="JVr-bR-Wuk"/>
-                            <constraint firstItem="KYL-0J-zkb" firstAttribute="leading" secondItem="kzi-f2-zrF" secondAttribute="leading" id="K9M-Qr-roN"/>
+                            <constraint firstItem="GAa-xg-iFk" firstAttribute="top" secondItem="ffG-dI-wh1" secondAttribute="bottom" constant="8" id="MQN-S6-qUk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZpA-dj-TBX" secondAttribute="trailing" constant="8" id="Qyr-rX-YiR"/>
                             <constraint firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cZY-t8-VWT" secondAttribute="leading" id="RFc-jS-Jnr"/>
+                            <constraint firstItem="GAa-xg-iFk" firstAttribute="trailing" secondItem="ffG-dI-wh1" secondAttribute="trailing" priority="990" id="Ucy-gy-ivn"/>
+                            <constraint firstItem="ffG-dI-wh1" firstAttribute="top" secondItem="ZpA-dj-TBX" secondAttribute="bottom" constant="21" id="Wp9-68-TVR"/>
+                            <constraint firstItem="BQM-dC-p0n" firstAttribute="trailing" secondItem="Rgq-7v-Evn" secondAttribute="trailing" id="cYs-JY-JiH"/>
                             <constraint firstItem="cZY-t8-VWT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g6c-jb-j9k"/>
                             <constraint firstItem="KYL-0J-zkb" firstAttribute="top" secondItem="kzi-f2-zrF" secondAttribute="bottom" id="hLM-Xr-gsB"/>
+                            <constraint firstItem="KYL-0J-zkb" firstAttribute="trailing" secondItem="kzi-f2-zrF" secondAttribute="trailing" id="iOT-pQ-CcL"/>
                             <constraint firstItem="kzi-f2-zrF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="jEk-hm-qfo"/>
-                            <constraint firstItem="ZpA-dj-TBX" firstAttribute="top" secondItem="KYL-0J-zkb" secondAttribute="bottom" constant="16" id="sRi-Li-LCJ"/>
+                            <constraint firstItem="BQM-dC-p0n" firstAttribute="leading" secondItem="GAa-xg-iFk" secondAttribute="leading" id="lAx-GK-rNc"/>
+                            <constraint firstItem="GAa-xg-iFk" firstAttribute="leading" secondItem="ffG-dI-wh1" secondAttribute="leading" id="mbS-b4-2FN"/>
+                            <constraint firstItem="ffG-dI-wh1" firstAttribute="leading" secondItem="ZpA-dj-TBX" secondAttribute="leading" id="n3K-b2-RtJ"/>
+                            <constraint firstItem="ZpA-dj-TBX" firstAttribute="top" secondItem="KYL-0J-zkb" secondAttribute="bottom" constant="24" id="sRi-Li-LCJ"/>
+                            <constraint firstItem="Rgq-7v-Evn" firstAttribute="height" secondItem="GAa-xg-iFk" secondAttribute="height" id="vue-Qo-TFC"/>
                         </constraints>
                     </view>
                 </viewController>
