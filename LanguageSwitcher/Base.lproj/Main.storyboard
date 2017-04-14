@@ -98,21 +98,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-dj-TBX">
-                                <rect key="frame" x="24" y="187" width="327" height="64.5"/>
+                                <rect key="frame" x="24" y="187" width="327" height="42.5"/>
                                 <string key="text">This is an example of some longer text.
-If it sounds weird in your language, it's Google's fault.</string>
+If it sounds weird in your language, it's the best Google Translate can do.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Decimal number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-dI-wh1">
-                                <rect key="frame" x="24" y="272.5" width="85.5" height="13.5"/>
+                                <rect key="frame" x="24" y="250.5" width="85.5" height="13.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-xg-iFk">
-                                <rect key="frame" x="24" y="294" width="85.5" height="36"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-xg-iFk">
+                                <rect key="frame" x="24" y="272" width="85.5" height="36"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="wBX-bD-Wwp"/>
@@ -121,21 +121,25 @@ If it sounds weird in your language, it's Google's fault.</string>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="textFieldDidChangeValue:" destination="BYZ-38-t0r" eventType="editingChanged" id="K2e-0f-WnE"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CZQ-MV-Fel"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zG-Pk-omS">
-                                <rect key="frame" x="117.5" y="301.5" width="194" height="21"/>
+                                <rect key="frame" x="117.5" y="279.5" width="194" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="5.15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgq-7v-Evn">
-                                <rect key="frame" x="319.5" y="294" width="31.5" height="36"/>
+                                <rect key="frame" x="319.5" y="272" width="31.5" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQM-dC-p0n">
-                                <rect key="frame" x="24" y="346" width="327" height="106"/>
+                                <rect key="frame" x="24" y="545" width="327" height="106"/>
                                 <string key="text">The decimal example above shows how current language / country influences the conversion from String to Double.
 It also shows how the DecimalPad keyboard type changes its decimal separator as you switch languages</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -149,7 +153,7 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                             <constraint firstItem="cZY-t8-VWT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="1Ft-e7-61b"/>
                             <constraint firstItem="3zG-Pk-omS" firstAttribute="centerY" secondItem="GAa-xg-iFk" secondAttribute="centerY" id="1NF-TJ-eeh"/>
                             <constraint firstItem="kzi-f2-zrF" firstAttribute="top" secondItem="cZY-t8-VWT" secondAttribute="bottom" constant="25" id="5Ow-P0-OKk"/>
-                            <constraint firstItem="BQM-dC-p0n" firstAttribute="top" secondItem="GAa-xg-iFk" secondAttribute="bottom" constant="16" id="6yJ-ap-0TF"/>
+                            <constraint firstItem="BQM-dC-p0n" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GAa-xg-iFk" secondAttribute="bottom" constant="16" id="6yJ-ap-0TF"/>
                             <constraint firstItem="Rgq-7v-Evn" firstAttribute="leading" secondItem="3zG-Pk-omS" secondAttribute="trailing" constant="8" id="82t-0q-Fqz"/>
                             <constraint firstItem="Rgq-7v-Evn" firstAttribute="trailing" secondItem="ZpA-dj-TBX" secondAttribute="trailing" id="8Zk-JP-geB"/>
                             <constraint firstItem="ZpA-dj-TBX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Fpg-qb-d63"/>
@@ -161,6 +165,7 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                             <constraint firstItem="GAa-xg-iFk" firstAttribute="trailing" secondItem="ffG-dI-wh1" secondAttribute="trailing" priority="990" id="Ucy-gy-ivn"/>
                             <constraint firstItem="ffG-dI-wh1" firstAttribute="top" secondItem="ZpA-dj-TBX" secondAttribute="bottom" constant="21" id="Wp9-68-TVR"/>
                             <constraint firstItem="BQM-dC-p0n" firstAttribute="trailing" secondItem="Rgq-7v-Evn" secondAttribute="trailing" id="cYs-JY-JiH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BQM-dC-p0n" secondAttribute="bottom" constant="16" id="dSn-RC-FnT"/>
                             <constraint firstItem="cZY-t8-VWT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g6c-jb-j9k"/>
                             <constraint firstItem="KYL-0J-zkb" firstAttribute="top" secondItem="kzi-f2-zrF" secondAttribute="bottom" id="hLM-Xr-gsB"/>
                             <constraint firstItem="KYL-0J-zkb" firstAttribute="trailing" secondItem="kzi-f2-zrF" secondAttribute="trailing" id="iOT-pQ-CcL"/>
@@ -172,10 +177,32 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                             <constraint firstItem="Rgq-7v-Evn" firstAttribute="height" secondItem="GAa-xg-iFk" secondAttribute="height" id="vue-Qo-TFC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="convertedLabel" destination="Rgq-7v-Evn" id="9rO-26-JST"/>
+                        <outlet property="dateLabel" destination="KYL-0J-zkb" id="ANE-5D-wp7"/>
+                        <outlet property="deBtn" destination="dMT-cO-OGE" id="apT-yc-Pr0"/>
+                        <outlet property="doneButton" destination="KkP-IR-8WI" id="7Um-o1-tUb"/>
+                        <outlet property="frBtn" destination="7xq-b2-8vy" id="LLa-Up-OIL"/>
+                        <outlet property="gbBtn" destination="GKf-Vl-6WS" id="tGa-1F-jkM"/>
+                        <outlet property="ilBtn" destination="cXV-ev-Kfy" id="QvS-tP-Xiy"/>
+                        <outlet property="rsBtn" destination="mih-kL-RPz" id="nnS-At-iRF"/>
+                        <outlet property="textField" destination="GAa-xg-iFk" id="lzJ-XK-izA"/>
+                        <outlet property="usBtn" destination="K6x-e8-aDp" id="yaD-Ak-D5l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KkP-IR-8WI">
+                    <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                    <state key="normal" title="DONE ↓"/>
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzQ-RF-yWY"/>
+                    </connections>
+                </button>
             </objects>
-            <point key="canvasLocation" x="-31.199999999999999" y="114.69265367316342"/>
+            <point key="canvasLocation" x="1" y="-45"/>
         </scene>
     </scenes>
     <resources>

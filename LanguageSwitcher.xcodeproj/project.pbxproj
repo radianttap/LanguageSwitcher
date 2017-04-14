@@ -17,6 +17,7 @@
 		D029F7A51EA11999002432A9 /* Locale-App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029F7A41EA11999002432A9 /* Locale-App.swift */; };
 		D029F7A71EA11D96002432A9 /* UserDefaults-AppLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029F7A61EA11D96002432A9 /* UserDefaults-AppLocale.swift */; };
 		D029F7A91EA13A5A002432A9 /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029F7A81EA13A5A002432A9 /* Flags.xcassets */; };
+		D029F7AB1EA14B68002432A9 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029F7AA1EA14B68002432A9 /* Formatters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D029F7A41EA11999002432A9 /* Locale-App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locale-App.swift"; sourceTree = "<group>"; };
 		D029F7A61EA11D96002432A9 /* UserDefaults-AppLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults-AppLocale.swift"; sourceTree = "<group>"; };
 		D029F7A81EA13A5A002432A9 /* Flags.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Flags.xcassets; sourceTree = "<group>"; };
+		D029F7AA1EA14B68002432A9 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				D029F7A81EA13A5A002432A9 /* Flags.xcassets */,
 				D029F7971EA1101A002432A9 /* LaunchScreen.storyboard */,
 				D029F79A1EA1101A002432A9 /* Info.plist */,
+				D029F7AA1EA14B68002432A9 /* Formatters.swift */,
 			);
 			path = LanguageSwitcher;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				D029F7A51EA11999002432A9 /* Locale-App.swift in Sources */,
 				D029F7A71EA11D96002432A9 /* UserDefaults-AppLocale.swift in Sources */,
 				D029F7A31EA1178F002432A9 /* DispatchQueue-Extensions.swift in Sources */,
+				D029F7AB1EA14B68002432A9 /* Formatters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
