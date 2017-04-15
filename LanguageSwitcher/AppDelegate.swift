@@ -16,9 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
 		Locale.setupInitialLanguage()
+		setupNotifications()
 
 		return true
 	}
+
+	fileprivate func setupNotifications() {
+		let nc = NotificationCenter.default
+		nc.addObserver(forName: NSLocale.currentLocaleDidChangeNotification, object: nil, queue: OperationQueue.main) {
+			[weak self] notification in
+			guard let `self` = self else { return }
+
+			let sb = UIStoryboard(name: "Main", bundle: nil)
+			let vc = sb.instantiateInitialViewController()
+			self.window?.rootViewController = vc
+		}
+	}
+
+
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -47,7 +62,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
-
 }
 
