@@ -27,23 +27,15 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-Vl-6WS" userLabel="uk">
-                                        <rect key="frame" x="8" y="8" width="53" height="54"/>
+                                        <rect key="frame" x="8" y="8" width="65.5" height="54"/>
                                         <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                         <state key="normal" image="gb"/>
                                         <connections>
                                             <action selector="changeLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEI-Yq-bz0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6x-e8-aDp" userLabel="us">
-                                        <rect key="frame" x="69" y="8" width="53.5" height="54"/>
-                                        <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
-                                        <state key="normal" image="us"/>
-                                        <connections>
-                                            <action selector="changeLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ndI-MK-nP4"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xq-b2-8vy" userLabel="fr">
-                                        <rect key="frame" x="130.5" y="8" width="53" height="54"/>
+                                        <rect key="frame" x="81.5" y="8" width="65" height="54"/>
                                         <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                         <state key="normal" image="fr"/>
                                         <connections>
@@ -51,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMT-cO-OGE" userLabel="de">
-                                        <rect key="frame" x="191.5" y="8" width="53" height="54"/>
+                                        <rect key="frame" x="154.5" y="8" width="65.5" height="54"/>
                                         <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                         <state key="normal" image="de"/>
                                         <connections>
@@ -59,7 +51,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mih-kL-RPz" userLabel="rs">
-                                        <rect key="frame" x="252.5" y="8" width="53.5" height="54"/>
+                                        <rect key="frame" x="228" y="8" width="65.5" height="54"/>
                                         <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                         <state key="normal" image="rs"/>
                                         <connections>
@@ -67,7 +59,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXV-ev-Kfy" userLabel="il">
-                                        <rect key="frame" x="314" y="8" width="53" height="54"/>
+                                        <rect key="frame" x="301.5" y="8" width="65.5" height="54"/>
                                         <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                         <state key="normal" image="il"/>
                                         <connections>
@@ -77,28 +69,24 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="K6x-e8-aDp" firstAttribute="top" secondItem="GKf-Vl-6WS" secondAttribute="top" id="1nr-Mz-9Ne"/>
+                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="bottom" secondItem="GKf-Vl-6WS" secondAttribute="bottom" id="074-nn-2dK"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="cXV-ev-Kfy" secondAttribute="trailing" id="82K-wL-GpF"/>
                                     <constraint firstItem="dMT-cO-OGE" firstAttribute="bottom" secondItem="7xq-b2-8vy" secondAttribute="bottom" id="Ago-va-ALv"/>
-                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="leading" secondItem="K6x-e8-aDp" secondAttribute="trailing" constant="8" id="Nl8-EE-agA"/>
                                     <constraint firstItem="GKf-Vl-6WS" firstAttribute="top" secondItem="cZY-t8-VWT" secondAttribute="topMargin" id="ODZ-5m-C18"/>
-                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="top" secondItem="K6x-e8-aDp" secondAttribute="top" id="PAp-Bl-ZRw"/>
-                                    <constraint firstItem="K6x-e8-aDp" firstAttribute="bottom" secondItem="GKf-Vl-6WS" secondAttribute="bottom" id="VQc-bp-Oy0"/>
                                     <constraint firstItem="dMT-cO-OGE" firstAttribute="leading" secondItem="7xq-b2-8vy" secondAttribute="trailing" constant="8" id="YJM-Y4-iBn"/>
                                     <constraint firstItem="cXV-ev-Kfy" firstAttribute="width" secondItem="mih-kL-RPz" secondAttribute="width" id="Ybm-9z-sIi"/>
+                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="width" secondItem="GKf-Vl-6WS" secondAttribute="width" id="ZFm-nP-cnV"/>
                                     <constraint firstItem="cXV-ev-Kfy" firstAttribute="bottom" secondItem="mih-kL-RPz" secondAttribute="bottom" id="aB4-Tx-QhZ"/>
-                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="bottom" secondItem="K6x-e8-aDp" secondAttribute="bottom" id="ag6-rD-o5P"/>
+                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="leading" secondItem="GKf-Vl-6WS" secondAttribute="trailing" constant="8" id="bth-oB-ZHx"/>
                                     <constraint firstItem="GKf-Vl-6WS" firstAttribute="leading" secondItem="cZY-t8-VWT" secondAttribute="leadingMargin" id="ddp-yB-Ttp"/>
-                                    <constraint firstItem="K6x-e8-aDp" firstAttribute="width" secondItem="GKf-Vl-6WS" secondAttribute="width" id="gh5-gN-cWk"/>
+                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="top" secondItem="GKf-Vl-6WS" secondAttribute="top" id="ekQ-rN-PxU"/>
                                     <constraint firstItem="cXV-ev-Kfy" firstAttribute="top" secondItem="mih-kL-RPz" secondAttribute="top" id="iuh-wz-oJt"/>
                                     <constraint firstItem="mih-kL-RPz" firstAttribute="top" secondItem="dMT-cO-OGE" secondAttribute="top" id="k3g-Ci-vTy"/>
                                     <constraint firstItem="mih-kL-RPz" firstAttribute="leading" secondItem="dMT-cO-OGE" secondAttribute="trailing" constant="8" id="lB2-ee-IDZ"/>
                                     <constraint firstItem="cXV-ev-Kfy" firstAttribute="leading" secondItem="mih-kL-RPz" secondAttribute="trailing" constant="8" id="lZi-K1-ZKL"/>
                                     <constraint firstItem="dMT-cO-OGE" firstAttribute="top" secondItem="7xq-b2-8vy" secondAttribute="top" id="lem-a5-IHV"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="GKf-Vl-6WS" secondAttribute="bottom" id="nkh-dD-8Gl"/>
-                                    <constraint firstItem="K6x-e8-aDp" firstAttribute="leading" secondItem="GKf-Vl-6WS" secondAttribute="trailing" constant="8" id="orM-HD-Iyg"/>
                                     <constraint firstItem="dMT-cO-OGE" firstAttribute="width" secondItem="7xq-b2-8vy" secondAttribute="width" id="scE-vL-FWh"/>
-                                    <constraint firstItem="7xq-b2-8vy" firstAttribute="width" secondItem="K6x-e8-aDp" secondAttribute="width" id="wRX-9L-NFS"/>
                                     <constraint firstItem="mih-kL-RPz" firstAttribute="bottom" secondItem="dMT-cO-OGE" secondAttribute="bottom" id="xkJ-M4-nCz"/>
                                     <constraint firstItem="mih-kL-RPz" firstAttribute="width" secondItem="dMT-cO-OGE" secondAttribute="width" id="zSd-M3-TfL"/>
                                 </constraints>
@@ -205,7 +193,6 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                         <outlet property="ilBtn" destination="cXV-ev-Kfy" id="QvS-tP-Xiy"/>
                         <outlet property="rsBtn" destination="mih-kL-RPz" id="nnS-At-iRF"/>
                         <outlet property="textField" destination="GAa-xg-iFk" id="lzJ-XK-izA"/>
-                        <outlet property="usBtn" destination="K6x-e8-aDp" id="yaD-Ak-D5l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,6 +216,5 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
         <image name="gb" width="16" height="16"/>
         <image name="il" width="16" height="16"/>
         <image name="rs" width="16" height="16"/>
-        <image name="us" width="16" height="16"/>
     </resources>
 </document>

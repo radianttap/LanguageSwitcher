@@ -11,7 +11,6 @@ import UIKit
 final class ViewController: UIViewController {
 
 	@IBOutlet fileprivate weak var gbBtn: UIButton!
-	@IBOutlet fileprivate weak var usBtn: UIButton!
 	@IBOutlet fileprivate weak var frBtn: UIButton!
 	@IBOutlet fileprivate weak var deBtn: UIButton!
 	@IBOutlet fileprivate weak var rsBtn: UIButton!
@@ -43,7 +42,7 @@ final class ViewController: UIViewController {
 		currentBtn.backgroundColor = nil
 
 		switch sender {
-		case gbBtn, usBtn:
+		case gbBtn:
 			Locale.updateLanguage(code: "en")
 		case frBtn:
 			Locale.updateLanguage(code: "fr")
@@ -103,31 +102,29 @@ fileprivate extension ViewController {
 			let countryCode = Locale.current.regionCode?.lowercased()
 		else { return }
 
-		switch countryCode {
-		case "gb":
+		switch languageCode {
+		case "en":
 			currentBtn = gbBtn
-		case "us":
-			currentBtn = usBtn
 		case "fr":
 			currentBtn = frBtn
 		case "de":
 			currentBtn = deBtn
-		case "rs":	//	Serbia
+		case "sr":	//	Serbian
 			currentBtn = rsBtn
-		case "il":	//	Israel
+		case "he":	//	Hebrew
 			currentBtn = ilBtn
 
 		default:
-			switch languageCode {
-			case "en":
+			switch countryCode {
+			case "gb":
 				currentBtn = gbBtn
 			case "fr":
 				currentBtn = frBtn
 			case "de":
 				currentBtn = deBtn
-			case "sr":	//	Serbian
+			case "rs":	//	Serbia
 				currentBtn = rsBtn
-			case "he":	//	Hebrew
+			case "il":	//	Israel
 				currentBtn = ilBtn
 
 			default:
