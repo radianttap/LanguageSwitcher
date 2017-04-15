@@ -19,6 +19,10 @@ extension NumberFormatter {
 		nf.numberStyle = .decimal
 		return nf
 	}()
+
+	static func resetupCashed() {
+		moneyFormatter.locale = Locale.current
+	}
 }
 
 
@@ -29,4 +33,8 @@ extension DateFormatter {
 		df.dateStyle = .full
 		return df
 	}()
+
+	static func resetupCashed() {
+		dobFormatter.locale = Locale.current
+	}
 }

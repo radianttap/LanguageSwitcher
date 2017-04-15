@@ -89,6 +89,10 @@ extension Locale {
 	static func updateLanguage(code: String) {
 		enforceLanguage(code: code)
 
+		//	update all cached stuff in the app
+		DateFormatter.resetupCashed()
+		NumberFormatter.resetupCashed()
+
 		//	post notification so the app views can update themselves
 		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: NSLocale.app)
 	}
