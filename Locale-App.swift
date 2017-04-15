@@ -8,13 +8,21 @@
 
 import Foundation
 
-extension NSLocale {
+final class AppLocale {
+	private(set) var original: Locale
+	private init() {
+		original = Locale.autoupdatingCurrent
+	}
+	static var shared = AppLocale()
+
 
 	///	Builds as specific LocaleIdentifier as your app needs
-	class var appIdentifier: String {
+	private var localeIdentifier: String {
 		//	start with whatever is used by iOS
-		let cur = NSLocale.autoupdatingCurrent
-		var comps = NSLocale.components(fromLocaleIdentifier: cur.identifier)
+		var comps = NSLocale.components(fromLocaleIdentifier: original.identifier)
+
+		//	Note: if customer has not yet chosen anything custom,
+		//	then it may make sense to default to primary language on his device
 
 		//	then load your app-level overrides
 //		for (key, value) in AppConfig.localeOverrides {
@@ -29,27 +37,26 @@ extension NSLocale {
 		//	then override the language with current in-app choice
 		if let languageCode = UserDefaults.languageCode {
 			comps[NSLocale.Key.languageCode.rawValue] = languageCode
-		} else {
-			//	if customer has not yet chosen anything custom, 
-			//	then default to primary language on his device
-			//	WARNING:
-			//	user language must be one of the ones available in the app
-			//	so make sure that whatever ends up as result, it actually has its own .lproj file
-			if let userPreferredLanguage = cur.languageCode {
-				comps[NSLocale.Key.languageCode.rawValue] = userPreferredLanguage
-			}
 		}
 
+		//	WARNING:
+		//	user language must be one of the ones available in the app
+		//	so make sure that whatever ends up as result, it actually has its own .lproj file
+		//	this is good moment to make sanity checks
+
 		//	finally return all of those settings combined
-		let identifier = localeIdentifier(fromComponents: comps)
+		let identifier = NSLocale.localeIdentifier(fromComponents: comps)
 		return identifier
 	}
 
+	class var identifier: String { return shared.localeIdentifier }
+}
 
-	///	This is used to to override `current` and `autoupdatingCurrent`
-	///	using `appIdentifier`
+extension NSLocale {
+
+	///	This is used to override `current`. It uses `AppLocale.identifier`
 	class var app: Locale {
-		return Locale(identifier: appIdentifier)
+		return Locale(identifier: AppLocale.identifier)
 	}
 
 
@@ -63,6 +70,7 @@ extension NSLocale {
 }
 
 extension Locale {
+	///	This should be set to the language you used as Base localization
 	fileprivate static var fallbackLanguageCode: String { return "en" }
 
 
@@ -73,11 +81,6 @@ extension Locale {
 
 		//	load translated bundle for the chosen language
 		Bundle.enforceLanguage(code)
-
-		//	override NSLocale.current
-		NSLocale.swizzle(selector: #selector(getter: NSLocale.current))
-		//	override NSLocale.autoupdatingCurrent
-		NSLocale.swizzle(selector: #selector(getter: NSLocale.autoupdatingCurrent))
 	}
 
 
@@ -93,8 +96,13 @@ extension Locale {
 
 	///	Call this as early as possible in application lifecycle, say in application(_:willFinishLaunchingWithOptions:)
 	static func setupInitialLanguage() {
+		let _ = AppLocale.shared
+
 		if let languageCode = UserDefaults.languageCode {
 			enforceLanguage(code: languageCode)
+
+			//	override NSLocale.current
+			NSLocale.swizzle(selector: #selector(getter: NSLocale.current))
 			return;
 		}
 
@@ -102,6 +110,9 @@ extension Locale {
 
 		//	enforce throughout the app
 		Locale.enforceLanguage(code: code)
+
+		//	override NSLocale.current
+		NSLocale.swizzle(selector: #selector(getter: NSLocale.current))
 
 		//	post notification so the app views can update themselves
 		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: NSLocale.app)
