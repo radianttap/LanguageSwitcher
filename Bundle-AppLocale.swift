@@ -8,10 +8,15 @@
 
 import Foundation
 
+/*
+	Credits:
+	https://www.factorialcomplexity.com/blog/2015/01/28/how-to-change-localization-internally-in-your-ios-application.html
+*/
+
 
 ///	Custom subclass to enable on-the-fly Bundle.main language change
 public final class LocalizedBundle: Bundle {
-	///	Override system func and enforce usage of particular .lproj translation bundle
+	///	Overrides system method and enforces usage of particular .lproj translation bundle
 	override public func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
 		if let bundle = Bundle.main.localizedBundle {
 			return bundle.localizedString(forKey: key, value: value, table: tableName)
@@ -38,12 +43,12 @@ public extension Bundle {
 		guard let path = Bundle.main.path(forResource: code, ofType: "lproj") else { return }
 		guard let bundle = Bundle(path: path) else { return }
 
-		//	prepare translated bundle for currently active language and
+		//	prepare translated bundle for chosen language and
 		//	save it as property of the Bundle.main
 		objc_setAssociatedObject(Bundle.main, &AssociatedKeys.b, bundle, .OBJC_ASSOCIATION_RETAIN)
 
 		//	now override class of the main bundle (only once during the app lifetime)
-		//	this way, `localizedString(forKey:value:table)` method in our subclass above, will actually be called
+		//	this way, `localizedString(forKey:value:table)` method in our subclass above will actually be called
 		DispatchQueue.once(token: AssociatedKeys.b)  {
 			object_setClass(Bundle.main, LocalizedBundle.self)
 		}

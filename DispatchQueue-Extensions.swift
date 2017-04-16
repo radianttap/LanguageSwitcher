@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+	Credits:
+	https://github.com/future-challenger/Swift3.0/tree/master/GCD
+*/
+
 public extension DispatchQueue {
 	private static var onceTracker = [String]()
 

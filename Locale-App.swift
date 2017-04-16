@@ -76,7 +76,7 @@ extension Locale {
 
 	///
 	fileprivate static func enforceLanguage(code: String) {
-		//	save this so it's automatically loaded on next cold start of the app
+		//	save this choice so it's automatically loaded on next cold start of the app
 		UserDefaults.languageCode = code
 
 		//	load translated bundle for the chosen language
@@ -102,6 +102,7 @@ extension Locale {
 	static func setupInitialLanguage() {
 		let _ = AppLocale.shared
 
+		//	if there is language chosen in-app, then restore that choice
 		if let languageCode = UserDefaults.languageCode {
 			enforceLanguage(code: languageCode)
 
@@ -110,6 +111,8 @@ extension Locale {
 			return;
 		}
 
+		//	I can't imagine when NSLocale would not have an entry for languageCode, 
+		//	but using fallback value just in case
 		let code = NSLocale.app.languageCode ?? fallbackLanguageCode
 
 		//	enforce throughout the app
