@@ -11,7 +11,7 @@ import Foundation
 
 extension UserDefaults {
 	private enum Key : String {
-		case languageCode
+		case languageCode = "AppleLanguages"
 	}
 
 	static var languageCode: String? {
