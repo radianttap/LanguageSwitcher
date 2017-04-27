@@ -147,7 +147,7 @@ extension Locale {
 		let _ = AppLocale.shared
 
 		NSLocale.swizzle(selector: #selector(getter: NSLocale.current), with: #selector(getter: NSLocale.app))
-//		NSLocale.swizzle(selector: #selector(getter: NSLocale.preferredLanguages), with: #selector(getter: NSLocale.appPreferredLanguages))
+		NSLocale.swizzle(selector: #selector(getter: NSLocale.preferredLanguages), with: #selector(getter: NSLocale.appPreferredLanguages))
 
 		//	if there is language chosen in-app, then restore that choice
 		if let languageCode = UserDefaults.languageCode {
