@@ -34,6 +34,8 @@ final class ViewController: UIViewController {
 	@IBOutlet weak var footnoteLabel: UILabel!
 	@IBOutlet weak var captionLabel: UILabel!
 
+	fileprivate var amount: Decimal?
+
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -42,6 +44,7 @@ final class ViewController: UIViewController {
 		setupNotifications()
 
 		localize()
+		setupDynamicUI()
 	}
 
 	fileprivate func setupUI() {
@@ -124,23 +127,25 @@ fileprivate extension ViewController {
 
 			//	layout pass..?
 			self.view.layoutIfNeeded()
+			self.currentBtn?.backgroundColor = .clear
 
 			//	translate stuff
 			self.localize()
+			self.setupUI()
+			self.setupDynamicUI()
 		}
 	}
 
 	func localize() {
-		//	STATIC stuff
-
 		titleLabel.text = NSLocalizedString("titleLabel", comment: "")
 		introLabel.text = NSLocalizedString("introLabel", comment: "")
 		footnoteLabel.text = NSLocalizedString("footnote", comment: "")
 		doneButton.setTitle(NSLocalizedString("doneButton", comment: ""), for: .normal)
 		arrowLabel.text = NSLocalizedString("arrowLabel", comment: "")
 		captionLabel.text = NSLocalizedString("textFieldCaption", comment: "")
+	}
 
-
+	fileprivate func setupDynamicUI() {
 		//	DYNAMIC stuff
 		//	(anything that produces a result which should be localized)
 
@@ -150,6 +155,9 @@ fileprivate extension ViewController {
 
 		resetButton.isEnabled = UserDefaults.languageCode != nil
 
+		if let num = amount {
+			textField.text = NumberFormatter.moneyFormatter.string(for: num)
+		}
 		textFieldDidChangeValue(textField)
 	}
 }
@@ -207,9 +215,11 @@ fileprivate extension ViewController {
 
 	func convert(_ str: String) {
 		guard let num = NumberFormatter.moneyFormatter.number(from: str)?.decimalValue else {
+			amount = nil
 			convertedLabel.text = nil
 			return
 		}
+		amount = num
 		convertedLabel.text = NumberFormatter.moneyFormatter.string(for: num)
 	}
 }
