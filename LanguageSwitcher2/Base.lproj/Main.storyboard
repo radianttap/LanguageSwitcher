@@ -30,7 +30,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LanguageSwitcher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LanguageSwitcher2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -208,16 +208,20 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                     </navigationItem>
                     <connections>
                         <outlet property="arrowLabel" destination="3zG-Pk-omS" id="GVv-Yb-8bp"/>
+                        <outlet property="captionLabel" destination="ffG-dI-wh1" id="Bzv-pJ-eFx"/>
                         <outlet property="convertedLabel" destination="Rgq-7v-Evn" id="9rO-26-JST"/>
                         <outlet property="dateLabel" destination="KYL-0J-zkb" id="ANE-5D-wp7"/>
                         <outlet property="deBtn" destination="dMT-cO-OGE" id="apT-yc-Pr0"/>
                         <outlet property="doneButton" destination="KkP-IR-8WI" id="7Um-o1-tUb"/>
+                        <outlet property="footnoteLabel" destination="BQM-dC-p0n" id="0UK-R4-B8Z"/>
                         <outlet property="frBtn" destination="7xq-b2-8vy" id="LLa-Up-OIL"/>
                         <outlet property="gbBtn" destination="GKf-Vl-6WS" id="tGa-1F-jkM"/>
                         <outlet property="ilBtn" destination="cXV-ev-Kfy" id="QvS-tP-Xiy"/>
+                        <outlet property="introLabel" destination="ZpA-dj-TBX" id="6bw-sE-iZt"/>
                         <outlet property="resetButton" destination="CdH-Nx-6dN" id="deW-BL-Twu"/>
                         <outlet property="rsBtn" destination="mih-kL-RPz" id="nnS-At-iRF"/>
                         <outlet property="textField" destination="GAa-xg-iFk" id="lzJ-XK-izA"/>
+                        <outlet property="titleLabel" destination="kzi-f2-zrF" id="ItN-of-wOq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

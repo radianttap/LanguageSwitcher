@@ -28,6 +28,13 @@ final class ViewController: UIViewController {
 
 	@IBOutlet fileprivate var resetButton: UIBarButtonItem!
 
+
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var introLabel: UILabel!
+	@IBOutlet weak var footnoteLabel: UILabel!
+	@IBOutlet weak var captionLabel: UILabel!
+
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -124,17 +131,20 @@ fileprivate extension ViewController {
 	}
 
 	func localize() {
-
-
 		//	STATIC stuff
+
+//		titleLabel.text = NSLocalizedString("kzi-f2-zrF.text", comment: "")
+//		introLabel.text = NSLocalizedString("ZpA-dj-TBX.text", comment: "")
+//		introLabel.text = NSLocalizedString("ZpA-dj-TBX.text", comment: "")
+
+
+		//	DYNAMIC stuff
+		//	(anything that produces a result which should be localized)
 
 		textField.placeholder = NumberFormatter.moneyFormatter.string(for: 0)
 		let now = Date()
 		dateLabel.text = DateFormatter.dobFormatter.string(from: now)
-		//	here now all the labels, button captions etc
 
-		//	DYNAMIC stuff
-		//	(anything that produces a result which should be localized)
 		resetButton.isEnabled = UserDefaults.languageCode != nil
 
 		textFieldDidChangeValue(textField)
