@@ -9,9 +9,9 @@
 import Foundation
 
 final class AppLocale {
-	private(set) var original: Locale
+	fileprivate(set) var original: Locale
 	private init() {
-		original = Locale.autoupdatingCurrent
+		original = Locale.current
 	}
 	static var shared = AppLocale()
 
@@ -39,7 +39,7 @@ final class AppLocale {
 			comps[NSLocale.Key.languageCode.rawValue] = languageCode
 		}
 
-		if let regionCode = UserDefaults.regionCode {
+		if let regionCode = UserDefaults.regionCode ?? original.regionCode {
 			comps[NSLocale.Key.countryCode.rawValue] = regionCode
 		}
 
@@ -75,16 +75,15 @@ extension NSLocale {
 
 extension Locale {
 	///	This should be set to the language you used as Base localization
-	fileprivate static var fallbackLanguageCode: String { return "en" }
+	fileprivate static var fallbackLanguageCode: String { return AppLocale.shared.original.languageCode ?? "en" }
+	fileprivate static var fallbackRegionCode: String? { return AppLocale.shared.original.regionCode }
 
 
 	///
 	fileprivate static func enforceLanguage(code: String, regionCode: String? = nil) {
 		//	save this choice so it's automatically loaded on next cold start of the app
 		UserDefaults.languageCode = code
-		if let regionCode = regionCode {
-			UserDefaults.regionCode = regionCode
-		}
+		UserDefaults.regionCode = regionCode
 
 		//	load translated bundle for the chosen language
 		Bundle.enforceLanguage(code)
@@ -116,8 +115,7 @@ extension Locale {
 		if let languageCode = UserDefaults.languageCode {
 			let regionCode = UserDefaults.regionCode
 			enforceLanguage(code: languageCode, regionCode: regionCode)
-
-			return;
+			return
 		}
 
 		//	I can't imagine when NSLocale/Locale would not have an entry for languageCode,

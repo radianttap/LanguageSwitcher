@@ -22,7 +22,11 @@ extension UserDefaults {
 		}
 		set(value) {
 			let defs = UserDefaults.standard
-			defs.set(value, forKey: Key.languageCode.rawValue)
+			if let value = value {
+				defs.set(value, forKey: Key.languageCode.rawValue)
+				return
+			}
+			defs.removeObject(forKey: Key.languageCode.rawValue)
 		}
 	}
 
@@ -33,7 +37,11 @@ extension UserDefaults {
 		}
 		set(value) {
 			let defs = UserDefaults.standard
-			defs.set(value, forKey: Key.regionCode.rawValue)
+			if let value = value {
+				defs.set(value, forKey: Key.regionCode.rawValue)
+				return
+			}
+			defs.removeObject(forKey: Key.regionCode.rawValue)
 		}
 	}
 }
