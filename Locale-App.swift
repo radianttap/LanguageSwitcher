@@ -18,7 +18,7 @@ final class AppLocale {
 
 	///	Builds as specific LocaleIdentifier as your app needs
 	private var localeIdentifier: String {
-		//	start with whatever is used by iOS
+		//	start with whatever was the iOS original
 		var comps = NSLocale.components(fromLocaleIdentifier: original.identifier)
 
 		//	Note: if customer has not yet chosen anything custom,
@@ -76,10 +76,17 @@ extension NSLocale {
 extension Locale {
 	///	This should be set to the language you used as Base localization
 	fileprivate static var fallbackLanguageCode: String { return AppLocale.shared.original.languageCode ?? "en" }
+
+	///	There is no sensible default for regionCode, as customers can be anywhere.
+	///	Thus optional String
 	fileprivate static var fallbackRegionCode: String? { return AppLocale.shared.original.regionCode }
 
 
+	///	Saves chosen language and (optional) region code to UserDefaults so they can be restored on future app starts
 	///
+	/// - Parameters:
+	///   - code: two-letter ISO 639-1 language code
+	///   - regionCode: two-letter ISO 3166-1 code
 	fileprivate static func enforceLanguage(code: String, regionCode: String? = nil) {
 		//	save this choice so it's automatically loaded on next cold start of the app
 		UserDefaults.languageCode = code
@@ -94,8 +101,11 @@ extension Locale {
 	}
 
 
-	///	Call this from wherever in the app's UI you are allowing the customer to change the language.
-	///	The supplied value of `code` must be proper code acceptable by NSLocale.languageCode
+	///	Call this from wherever in the app's UI you are allowing the customer to change the language / region
+	///
+	/// - Parameters:
+	///   - code: two-letter ISO 639-1 language code
+	///   - regionCode: two-letter ISO 3166-1 code
 	static func updateLanguage(code: String, regionCode: String? = nil) {
 		enforceLanguage(code: code, regionCode: regionCode)
 
@@ -104,7 +114,8 @@ extension Locale {
 	}
 
 
-	///	Call this as early as possible in application lifecycle, say in application(_:willFinishLaunchingWithOptions:)
+	///	Call this as early as possible in application lifecycle, 
+	///	say in `application(_:willFinishLaunchingWithOptions:)`
 	static func setupInitialLanguage() {
 		let _ = AppLocale.shared
 
@@ -115,22 +126,18 @@ extension Locale {
 		if let languageCode = UserDefaults.languageCode {
 			let regionCode = UserDefaults.regionCode
 			enforceLanguage(code: languageCode, regionCode: regionCode)
+
+			//	post notification so the app views can update themselves
+			NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: Locale.current)
 			return
 		}
 
-		//	I can't imagine when NSLocale/Locale would not have an entry for languageCode,
-		//	but using fallback value just in case
-		let code = Locale.current.languageCode ?? fallbackLanguageCode
-
-		//	enforce throughout the app
-		enforceLanguage(code: code)
-
-		//	post notification so the app views can update themselves
-		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: Locale.current)
+		//	If customer has never chosen any language overrides, 
+		//	then it would fallback to original Locale.current
 	}
 
 
-	///	is the languageCode using right to left direction
+	///	Returns `true` if given Locale uses right to left direction
 	var isRightToLeft: Bool {
 		guard let languageCode = languageCode else { return false }
 		return Locale.characterDirection(forLanguage: languageCode) == .rightToLeft
