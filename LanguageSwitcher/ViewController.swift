@@ -114,7 +114,10 @@ fileprivate extension ViewController {
 			[weak self] notification in
 			guard let `self` = self else { return }
 
+			//	layout pass..?
 			self.view.layoutIfNeeded()
+
+			//	translate stuff
 			self.localize()
 		}
 	}
