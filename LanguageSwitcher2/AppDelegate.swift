@@ -32,19 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	fileprivate func setupNotifications() {
-		let nc = NotificationCenter.default
-		nc.addObserver(forName: NSLocale.currentLocaleDidChangeNotification, object: nil, queue: OperationQueue.main) {
-			[weak self] notification in
-			guard let `self` = self else { return }
-
-			//	this is the only way I know of to force-reload storyboard-based stuff
-			//	limitations like this is one of the main reason why I avoid basing entire app on them
-			//	since doing this essentialy resets the app and all user-generated context and data
-
-			let sb = UIStoryboard(name: "Main", bundle: nil)
-			let vc = sb.instantiateInitialViewController()
-			self.window?.rootViewController = vc
-		}
+//		let nc = NotificationCenter.default
+//		nc.addObserver(forName: NSLocale.currentLocaleDidChangeNotification, object: nil, queue: OperationQueue.main) {
+//			[weak self] notification in
+//			guard let `self` = self else { return }
+//
+//			//	this is the only way I know of to force-reload storyboard-based stuff
+//			//	limitations like this is one of the main reason why I avoid basing entire app on them
+//			//	since doing this essentialy resets the app and all user-generated context and data
+//
+//			let sb = UIStoryboard(name: "Main", bundle: nil)
+//			let vc = sb.instantiateInitialViewController()
+//			self.window?.rootViewController = vc
+//		}
 	}
 }
 

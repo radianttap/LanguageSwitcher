@@ -124,15 +124,6 @@ fileprivate extension ViewController {
 	}
 
 	func localize() {
-		//	Another approach to avoid the issue of storyboard force-reloading
-		//	make sure to use a method like this which you call in `viewDidLoad`
-		//	and from the `NSLocale.currentLocaleDidChangeNotification` handler
-		//	this method should populate all the localized items for this particular view
-		//	Downside:
-		//	you need to create outlets for all controls showing localizable stuff
-		//	and repeat all the strings here, that you already did in the storyboard
-		//	Benefit:
-		//	this can be extended for situations where your translations are loaded from web API
 
 
 		//	STATIC stuff
