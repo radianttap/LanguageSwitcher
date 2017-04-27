@@ -1,27 +1,27 @@
 
 /* Class = "UILabel"; text = "→"; ObjectID = "3zG-Pk-omS"; */
-"3zG-Pk-omS.text" = "←";
+"arrowLabel" = "→";
 
 /* Class = "UILabel"; text = "The decimal example above shows how current language / country influences the conversion from String to Double.\nIt also shows how the DecimalPad keyboard type changes its decimal separator as you switch languages"; ObjectID = "BQM-dC-p0n"; */
-"BQM-dC-p0n.text" = "הדוגמה העשרונית שלמעלה מראה כיצד השפה / הארץ הנוכחיות משפיעות על ההמרה ממחרוזת ל- Double.\nהוא גם מראה כיצד סוג המקלדת DecimalPad משנה את מפריד העשרונית שלה בעת החלפת שפות.";
+"footnote" = "L'exemple décimal ci-dessus montre comment la langue / pays actuel influence la conversion de String en Double.\nIl montre également comment le type de clavier DecimalPad change son séparateur décimal lorsque vous changez de langue.";
 
 /* Class = "UITextField"; placeholder = "0.00"; ObjectID = "GAa-xg-iFk"; */
-"GAa-xg-iFk.placeholder" = "0.00";
+"textFieldPlaceholder" = "0.00";
 
 /* Class = "UILabel"; text = "current date"; ObjectID = "KYL-0J-zkb"; */
-"KYL-0J-zkb.text" = "נוכחי";
+"KYL-0J-zkb.text" = "date actuelle";
 
 /* Class = "UIButton"; normalTitle = "DONE ↓"; ObjectID = "KkP-IR-8WI"; */
-"KkP-IR-8WI.normalTitle" = "בוצע ↓";
+"doneButton" = "TERMINÉ ↓";
 
 /* Class = "UILabel"; text = "5.15"; ObjectID = "Rgq-7v-Evn"; */
 "Rgq-7v-Evn.text" = "5.15";
 
 /* Class = "UILabel"; text = "This is an example of some longer text.\nIf it sounds weird in your language, it's the best Google Translate can do."; ObjectID = "ZpA-dj-TBX"; */
-"ZpA-dj-TBX.text" = "זוהי דוגמה לטקסט ארוך יותר.\nאם זה נשמע מוזר בשפה שלך, זה התרגום הטוב ביותר של Google יכול לעשות.";
+"introLabel" = "Il s'agit d'un exemple de texte plus long.\nSi cela semble étrange dans votre langue, c'est le meilleur Google Translate peut le faire.";
 
 /* Class = "UILabel"; text = "Decimal number"; ObjectID = "ffG-dI-wh1"; */
-"ffG-dI-wh1.text" = "עשרוני";
+"textFieldCaption" = "Nombre décimal";
 
 /* Class = "UILabel"; text = "Language Switcher"; ObjectID = "kzi-f2-zrF"; */
-"kzi-f2-zrF.text" = "שפה";
+"titleLabel" = "Commutateur de langue";

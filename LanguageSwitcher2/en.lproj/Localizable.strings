@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "→"; ObjectID = "3zG-Pk-omS"; */
+"arrowLabel" = "→";
+
+/* Class = "UILabel"; text = "The decimal example above shows how current language / country influences the conversion from String to Double.\nIt also shows how the DecimalPad keyboard type changes its decimal separator as you switch languages"; ObjectID = "BQM-dC-p0n"; */
+"footnote" = "The decimal example above shows how current language / country influences the conversion from String to Double.\nIt also shows how the DecimalPad keyboard type changes its decimal separator as you switch languages";
+
+/* Class = "UIButton"; normalTitle = "DONE ↓"; ObjectID = "KkP-IR-8WI"; */
+"doneButton" = "DONE ↓";
+
+/* Class = "UILabel"; text = "This is an example of some longer text.\nIf it sounds weird in your language, it's the best Google Translate can do."; ObjectID = "ZpA-dj-TBX"; */
+"introLabel" = "This is an example of some longer text.\nIf it sounds weird in your language, it's the best Google Translate can do.";
+
+/* Class = "UILabel"; text = "Decimal number"; ObjectID = "ffG-dI-wh1"; */
+"textFieldCaption" = "Decimal number";
+
+/* Class = "UILabel"; text = "Language Switcher"; ObjectID = "kzi-f2-zrF"; */
+"titleLabel" = "Language Switcher";

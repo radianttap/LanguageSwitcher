@@ -133,9 +133,12 @@ fileprivate extension ViewController {
 	func localize() {
 		//	STATIC stuff
 
-//		titleLabel.text = NSLocalizedString("kzi-f2-zrF.text", comment: "")
-//		introLabel.text = NSLocalizedString("ZpA-dj-TBX.text", comment: "")
-//		introLabel.text = NSLocalizedString("ZpA-dj-TBX.text", comment: "")
+		titleLabel.text = NSLocalizedString("titleLabel", comment: "")
+		introLabel.text = NSLocalizedString("introLabel", comment: "")
+		footnoteLabel.text = NSLocalizedString("footnote", comment: "")
+		doneButton.setTitle(NSLocalizedString("doneButton", comment: ""), for: .normal)
+		arrowLabel.text = NSLocalizedString("arrowLabel", comment: "")
+		captionLabel.text = NSLocalizedString("textFieldCaption", comment: "")
 
 
 		//	DYNAMIC stuff
