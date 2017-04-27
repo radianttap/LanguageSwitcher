@@ -39,6 +39,10 @@ final class AppLocale {
 			comps[NSLocale.Key.languageCode.rawValue] = languageCode
 		}
 
+		if let regionCode = UserDefaults.regionCode {
+			comps[NSLocale.Key.countryCode.rawValue] = regionCode
+		}
+
 		//	WARNING:
 		//	user language must be one of the ones available in the app
 		//	so make sure that whatever ends up as result, it actually has its own .lproj file
@@ -75,9 +79,12 @@ extension Locale {
 
 
 	///
-	fileprivate static func enforceLanguage(code: String) {
+	fileprivate static func enforceLanguage(code: String, regionCode: String? = nil) {
 		//	save this choice so it's automatically loaded on next cold start of the app
 		UserDefaults.languageCode = code
+		if let regionCode = regionCode {
+			UserDefaults.regionCode = regionCode
+		}
 
 		//	load translated bundle for the chosen language
 		Bundle.enforceLanguage(code)
@@ -90,8 +97,8 @@ extension Locale {
 
 	///	Call this from wherever in the app's UI you are allowing the customer to change the language.
 	///	The supplied value of `code` must be proper code acceptable by NSLocale.languageCode
-	static func updateLanguage(code: String) {
-		enforceLanguage(code: code)
+	static func updateLanguage(code: String, regionCode: String? = nil) {
+		enforceLanguage(code: code, regionCode: regionCode)
 
 		//	post notification so the app views can update themselves
 		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: Locale.current)
@@ -107,12 +114,13 @@ extension Locale {
 
 		//	if there is language chosen in-app, then restore that choice
 		if let languageCode = UserDefaults.languageCode {
-			enforceLanguage(code: languageCode)
+			let regionCode = UserDefaults.regionCode
+			enforceLanguage(code: languageCode, regionCode: regionCode)
 
 			return;
 		}
 
-		//	I can't imagine when NSLocale would not have an entry for languageCode, 
+		//	I can't imagine when NSLocale/Locale would not have an entry for languageCode,
 		//	but using fallback value just in case
 		let code = Locale.current.languageCode ?? fallbackLanguageCode
 
