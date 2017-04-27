@@ -185,7 +185,7 @@ fileprivate extension ViewController {
 		case rsBtn:
 			Locale.updateLanguage(code: "sr")
 		case ilBtn:
-			Locale.updateLanguage(code: "he")
+			Locale.updateLanguage(code: "he", regionCode: "il")
 		default:
 			break
 		}
