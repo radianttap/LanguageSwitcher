@@ -10,8 +10,10 @@ import Foundation
 
 final class AppLocale {
 	fileprivate(set) var original: Locale
+	fileprivate(set) var originalPreferredLanguages: [String]
 	private init() {
 		original = Locale.current
+		originalPreferredLanguages = Locale.preferredLanguages
 	}
 	static var shared = AppLocale()
 
@@ -63,10 +65,17 @@ extension NSLocale {
 		return Locale(identifier: AppLocale.identifier)
 	}
 
+	class var appPreferredLanguages: [String] {
+		var arr = AppLocale.shared.originalPreferredLanguages
+		if let languageCode = UserDefaults.languageCode, !arr.contains(languageCode) {
+			arr.insert(languageCode, at: 0)
+		}
+		return arr
+	}
 
-	fileprivate static func swizzle(selector: Selector) {
+	fileprivate static func swizzle(selector: Selector, with replacement: Selector) {
 		let originalSelector = selector
-		let swizzledSelector = #selector(getter: NSLocale.app)
+		let swizzledSelector = replacement
 		let originalMethod = class_getClassMethod(self, originalSelector)
 		let swizzledMethod = class_getClassMethod(self, swizzledSelector)
 		method_exchangeImplementations(originalMethod, swizzledMethod)
@@ -137,8 +146,8 @@ extension Locale {
 	static func setupInitialLanguage() {
 		let _ = AppLocale.shared
 
-		//	override NSLocale.current
-		NSLocale.swizzle(selector: #selector(getter: NSLocale.current))
+		NSLocale.swizzle(selector: #selector(getter: NSLocale.current), with: #selector(getter: NSLocale.app))
+//		NSLocale.swizzle(selector: #selector(getter: NSLocale.preferredLanguages), with: #selector(getter: NSLocale.appPreferredLanguages))
 
 		//	if there is language chosen in-app, then restore that choice
 		if let languageCode = UserDefaults.languageCode {
