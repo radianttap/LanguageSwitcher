@@ -122,4 +122,11 @@ extension Locale {
 		//	post notification so the app views can update themselves
 		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: Locale.current)
 	}
+
+
+	///	is the languageCode using right to left direction
+	var isRightToLeft: Bool {
+		guard let languageCode = languageCode else { return false }
+		return Locale.characterDirection(forLanguage: languageCode) == .rightToLeft
+	}
 }

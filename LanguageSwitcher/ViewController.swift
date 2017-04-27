@@ -21,6 +21,7 @@ final class ViewController: UIViewController {
 	@IBOutlet fileprivate weak var dateLabel: UILabel!
 	@IBOutlet fileprivate weak var textField: UITextField!
 	@IBOutlet fileprivate weak var convertedLabel: UILabel!
+	@IBOutlet fileprivate weak var arrowLabel: UILabel!
 
 	@IBOutlet fileprivate var doneButton: UIButton!
 	fileprivate var doneButtonBottomConstraint: NSLayoutConstraint?
@@ -113,6 +114,7 @@ fileprivate extension ViewController {
 			[weak self] notification in
 			guard let `self` = self else { return }
 
+			self.view.layoutIfNeeded()
 			self.localize()
 		}
 	}
@@ -138,6 +140,8 @@ fileprivate extension ViewController {
 
 		//	DYNAMIC stuff 
 		//	(anything that produces a result which should be localized)
+		//	here, switch the arrow
+		arrowLabel.text = Locale.current.isRightToLeft ? "←" : "→"
 
 		textFieldDidChangeValue(textField)
 	}
