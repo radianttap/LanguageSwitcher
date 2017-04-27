@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jmo-lz-Lmn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="d2C-Bo-pfA">
+            <objects>
+                <navigationController id="jmo-lz-Lmn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fPh-ym-Wkd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6H4-Ty-qSH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAL-J4-3ck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1628" y="-125"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZY-t8-VWT">
-                                <rect key="frame" x="0.0" y="20" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-Vl-6WS" userLabel="uk">
                                         <rect key="frame" x="8" y="8" width="65.5" height="54"/>
@@ -92,19 +108,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language Switcher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzi-f2-zrF">
-                                <rect key="frame" x="70.5" y="115" width="233.5" height="33.5"/>
+                                <rect key="frame" x="70.5" y="159" width="233.5" height="33.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYL-0J-zkb">
-                                <rect key="frame" x="234" y="148.5" width="70" height="14.5"/>
+                                <rect key="frame" x="234" y="192.5" width="70" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-dj-TBX">
-                                <rect key="frame" x="24" y="187" width="327" height="42.5"/>
+                                <rect key="frame" x="24" y="231" width="327" height="42.5"/>
                                 <string key="text">This is an example of some longer text.
 If it sounds weird in your language, it's the best Google Translate can do.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -112,13 +128,13 @@ If it sounds weird in your language, it's the best Google Translate can do.</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Decimal number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-dI-wh1">
-                                <rect key="frame" x="24" y="250.5" width="85.5" height="13.5"/>
+                                <rect key="frame" x="24" y="294.5" width="85.5" height="13.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-xg-iFk">
-                                <rect key="frame" x="24" y="272" width="85.5" height="36"/>
+                                <rect key="frame" x="24" y="316" width="85.5" height="36"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="wBX-bD-Wwp"/>
@@ -133,13 +149,13 @@ If it sounds weird in your language, it's the best Google Translate can do.</str
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zG-Pk-omS">
-                                <rect key="frame" x="117.5" y="279.5" width="194" height="21"/>
+                                <rect key="frame" x="117.5" y="323.5" width="194" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="5.15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgq-7v-Evn">
-                                <rect key="frame" x="319.5" y="272" width="31.5" height="36"/>
+                                <rect key="frame" x="319.5" y="316" width="31.5" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -183,6 +199,13 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                             <constraint firstItem="Rgq-7v-Evn" firstAttribute="height" secondItem="GAa-xg-iFk" secondAttribute="height" id="vue-Qo-TFC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="g2B-vg-WJh">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="CdH-Nx-6dN">
+                            <connections>
+                                <action selector="reset:" destination="BYZ-38-t0r" id="XxR-P6-61P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="arrowLabel" destination="3zG-Pk-omS" id="GVv-Yb-8bp"/>
                         <outlet property="convertedLabel" destination="Rgq-7v-Evn" id="9rO-26-JST"/>
@@ -192,6 +215,7 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                         <outlet property="frBtn" destination="7xq-b2-8vy" id="LLa-Up-OIL"/>
                         <outlet property="gbBtn" destination="GKf-Vl-6WS" id="tGa-1F-jkM"/>
                         <outlet property="ilBtn" destination="cXV-ev-Kfy" id="QvS-tP-Xiy"/>
+                        <outlet property="resetButton" destination="CdH-Nx-6dN" id="deW-BL-Twu"/>
                         <outlet property="rsBtn" destination="mih-kL-RPz" id="nnS-At-iRF"/>
                         <outlet property="textField" destination="GAa-xg-iFk" id="lzJ-XK-izA"/>
                     </connections>
@@ -208,7 +232,7 @@ It also shows how the DecimalPad keyboard type changes its decimal separator as 
                     </connections>
                 </button>
             </objects>
-            <point key="canvasLocation" x="1" y="-45"/>
+            <point key="canvasLocation" x="-847" y="-125"/>
         </scene>
     </scenes>
     <resources>

@@ -114,6 +114,24 @@ extension Locale {
 	}
 
 
+	///	Removes saved language/region from UserDefaults, 
+	///	removes the custom translation bundle, resets Formatter cache,
+	///	posts notification so views can update themselves
+	static func clearInAppOverrides() {
+		UserDefaults.languageCode = nil
+		UserDefaults.regionCode = nil
+
+		Bundle.clearInAppOverrides()
+
+		//	update all cached stuff in the app
+		DateFormatter.resetupCashed()
+		NumberFormatter.resetupCashed()
+
+		//	post notification so the app views can update themselves
+		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: Locale.current)
+	}
+
+
 	///	Call this as early as possible in application lifecycle, 
 	///	say in `application(_:willFinishLaunchingWithOptions:)`
 	static func setupInitialLanguage() {

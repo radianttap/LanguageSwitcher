@@ -38,7 +38,9 @@ public extension Bundle {
 		}
 	}
 
+	/// Loads the translations for the given language code.
 	///
+	/// - Parameter code: two-letter ISO 639-1 language code
 	public static func enforceLanguage(_ code: String) {
 		guard let path = Bundle.main.path(forResource: code, ofType: "lproj") else { return }
 		guard let bundle = Bundle(path: path) else { return }
@@ -52,5 +54,11 @@ public extension Bundle {
 		DispatchQueue.once(token: AssociatedKeys.b)  {
 			object_setClass(Bundle.main, LocalizedBundle.self)
 		}
+	}
+
+
+	///	Removes the custom bundle
+	public static func clearInAppOverrides() {
+		objc_setAssociatedObject(Bundle.main, &AssociatedKeys.b, nil, .OBJC_ASSOCIATION_RETAIN)
 	}
 }

@@ -16,7 +16,7 @@ final class ViewController: UIViewController {
 	@IBOutlet fileprivate weak var rsBtn: UIButton!
 	@IBOutlet fileprivate weak var ilBtn: UIButton!
 
-	fileprivate weak var currentBtn: UIButton!
+	fileprivate weak var currentBtn: UIButton?
 
 	@IBOutlet fileprivate weak var dateLabel: UILabel!
 	@IBOutlet fileprivate weak var textField: UITextField!
@@ -25,6 +25,8 @@ final class ViewController: UIViewController {
 
 	@IBOutlet fileprivate var doneButton: UIButton!
 	fileprivate var doneButtonBottomConstraint: NSLayoutConstraint?
+
+	@IBOutlet fileprivate var resetButton: UIBarButtonItem!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -43,10 +45,7 @@ final class ViewController: UIViewController {
 
 		convertedLabel.text = nil
 
-		guard
-			let languageCode = Locale.current.languageCode,
-			let countryCode = Locale.current.regionCode?.lowercased()
-			else { return }
+		guard let languageCode = Locale.current.languageCode else { return }
 
 		switch languageCode {
 		case "en":
@@ -61,7 +60,9 @@ final class ViewController: UIViewController {
 			currentBtn = ilBtn
 
 		default:
-			switch countryCode {
+			guard let regionCode = Locale.current.regionCode?.lowercased() else { return }
+
+			switch regionCode {
 			case "gb":
 				currentBtn = gbBtn
 			case "fr":
@@ -79,7 +80,7 @@ final class ViewController: UIViewController {
 			}
 		}
 
-		currentBtn.backgroundColor = .white
+		currentBtn?.backgroundColor = .white
 	}
 }
 
@@ -143,6 +144,7 @@ fileprivate extension ViewController {
 
 		//	DYNAMIC stuff 
 		//	(anything that produces a result which should be localized)
+		resetButton.isEnabled = UserDefaults.languageCode != nil
 
 		textFieldDidChangeValue(textField)
 	}
@@ -162,6 +164,10 @@ extension ViewController: UITextFieldDelegate {
 		}
 		convert(str)
 	}
+
+	@IBAction func reset(_ sender: UIBarButtonItem) {
+		Locale.clearInAppOverrides()
+	}
 }
 
 
@@ -174,7 +180,7 @@ fileprivate extension ViewController {
 	@IBAction func changeLanguage(_ sender: UIButton) {
 		if sender == currentBtn { return }
 
-		currentBtn.backgroundColor = nil
+		currentBtn?.backgroundColor = nil
 
 		switch sender {
 		case gbBtn:
@@ -192,7 +198,7 @@ fileprivate extension ViewController {
 		}
 
 		currentBtn = sender
-		currentBtn.backgroundColor = .white
+		currentBtn?.backgroundColor = .white
 	}
 
 	func convert(_ str: String) {
