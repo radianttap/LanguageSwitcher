@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "→"; ObjectID = "3zG-Pk-omS"; */
-"3zG-Pk-omS.text" = "→";
+"3zG-Pk-omS.text" = "←";
 
 /* Class = "UILabel"; text = "The decimal example above shows how current language / country influences the conversion from String to Double.\nIt also shows how the DecimalPad keyboard type changes its decimal separator as you switch languages"; ObjectID = "BQM-dC-p0n"; */
 "BQM-dC-p0n.text" = "הדוגמה העשרונית שלמעלה מראה כיצד השפה / הארץ הנוכחיות משפיעות על ההמרה ממחרוזת ל- Double.\nהוא גם מראה כיצד סוג המקלדת DecimalPad משנה את מפריד העשרונית שלה בעת החלפת שפות.";

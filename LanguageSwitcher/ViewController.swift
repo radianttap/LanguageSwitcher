@@ -140,8 +140,6 @@ fileprivate extension ViewController {
 
 		//	DYNAMIC stuff 
 		//	(anything that produces a result which should be localized)
-		//	here, switch the arrow
-		arrowLabel.text = Locale.current.isRightToLeft ? "←" : "→"
 
 		textFieldDidChangeValue(textField)
 	}
