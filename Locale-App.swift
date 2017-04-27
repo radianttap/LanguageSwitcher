@@ -81,6 +81,10 @@ extension Locale {
 
 		//	load translated bundle for the chosen language
 		Bundle.enforceLanguage(code)
+
+		//	update all cached stuff in the app
+		DateFormatter.resetupCashed()
+		NumberFormatter.resetupCashed()
 	}
 
 
@@ -89,12 +93,8 @@ extension Locale {
 	static func updateLanguage(code: String) {
 		enforceLanguage(code: code)
 
-		//	update all cached stuff in the app
-		DateFormatter.resetupCashed()
-		NumberFormatter.resetupCashed()
-
 		//	post notification so the app views can update themselves
-		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: NSLocale.app)
+		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: Locale.current)
 	}
 
 
@@ -102,26 +102,24 @@ extension Locale {
 	static func setupInitialLanguage() {
 		let _ = AppLocale.shared
 
+		//	override NSLocale.current
+		NSLocale.swizzle(selector: #selector(getter: NSLocale.current))
+
 		//	if there is language chosen in-app, then restore that choice
 		if let languageCode = UserDefaults.languageCode {
 			enforceLanguage(code: languageCode)
 
-			//	override NSLocale.current
-			NSLocale.swizzle(selector: #selector(getter: NSLocale.current))
 			return;
 		}
 
 		//	I can't imagine when NSLocale would not have an entry for languageCode, 
 		//	but using fallback value just in case
-		let code = NSLocale.app.languageCode ?? fallbackLanguageCode
+		let code = Locale.current.languageCode ?? fallbackLanguageCode
 
 		//	enforce throughout the app
-		Locale.enforceLanguage(code: code)
-
-		//	override NSLocale.current
-		NSLocale.swizzle(selector: #selector(getter: NSLocale.current))
+		enforceLanguage(code: code)
 
 		//	post notification so the app views can update themselves
-		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: NSLocale.app)
+		NotificationCenter.default.post(name: NSLocale.currentLocaleDidChangeNotification, object: Locale.current)
 	}
 }
