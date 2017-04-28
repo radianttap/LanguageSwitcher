@@ -82,6 +82,10 @@ Look into the `localize()` method in [demo's ViewController](https://github.com/
 
 If you cache your DateFormatter and NumberFormatter instances - as you certainly should - then on language change you need to [make sure to re-set up](https://github.com/radianttap/LanguageSwitcher/blob/master/LanguageSwitcher/Formatters.swift) Locale and dateFormat values.
 
+* LanguageSwitcher project uses `Main.storyboard` and shows how you can "restart" the app and thus render the changes.
+* LanguageSwitcher2 project builds the UI stack in `AppDelegate` and shows how you can keep the user context and use notifications to inform all the views to re-populate their content using `NSLocalizedString()`
+
+
 ### Issues
 
 There's a non-critical issue with the keyboard: when the keyboard is shown, iOS will cache that generated view. Thus if you do this sequence:
