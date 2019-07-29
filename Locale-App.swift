@@ -61,11 +61,11 @@ final class AppLocale {
 extension NSLocale {
 
 	///	This is used to override `current`. It uses `AppLocale.identifier`
-	class var app: Locale {
+	@objc class var app: Locale {
 		return Locale(identifier: AppLocale.identifier)
 	}
 
-	class var appPreferredLanguages: [String] {
+	@objc class var appPreferredLanguages: [String] {
 		var arr = AppLocale.shared.originalPreferredLanguages
 		if let languageCode = UserDefaults.languageCode, !arr.contains(languageCode) {
 			arr.insert(languageCode, at: 0)
@@ -76,8 +76,10 @@ extension NSLocale {
 	fileprivate static func swizzle(selector: Selector, with replacement: Selector) {
 		let originalSelector = selector
 		let swizzledSelector = replacement
-		let originalMethod = class_getClassMethod(self, originalSelector)
-		let swizzledMethod = class_getClassMethod(self, swizzledSelector)
+		guard
+			let originalMethod = class_getClassMethod(self, originalSelector),
+			let swizzledMethod = class_getClassMethod(self, swizzledSelector)
+		else { return }
 		method_exchangeImplementations(originalMethod, swizzledMethod)
 	}
 }

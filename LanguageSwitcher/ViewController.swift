@@ -89,13 +89,13 @@ fileprivate extension ViewController {
 		let nc = NotificationCenter.default
 
 		//	when keyboard appears, make sure to
-		nc.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) {
+		nc.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main) {
 			[weak self] notification in
 			guard let `self` = self else { return }
 
 			guard
 				let userInfo = notification.userInfo,
-				let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue
+				let frameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
 			else {
 				return
 			}

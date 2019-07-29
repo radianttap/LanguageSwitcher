@@ -17,7 +17,7 @@ public extension DispatchQueue {
 	private static var onceTracker = [String]()
 
 	///	Execute the given `block` only once during app's lifecycle
-	public class func once(token: String, block: (Void) -> Void) {
+	class func once(token: String, block: () -> Void) {
 		objc_sync_enter(self);
 		defer {
 			objc_sync_exit(self)
