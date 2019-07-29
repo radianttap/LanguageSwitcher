@@ -22,7 +22,7 @@ This is done at the app start and there is no way I know of to force-change the 
 
 *So we need to cheat and since iOS runtime is dynamism heaven enabled by Objective-C, we can actually do that.*
 
-Maxim Bilan found [neat solution](https://www.factorialcomplexity.com/blog/2015/01/28/how-to-change-localization-internally-in-your-ios-application.html) which I have [converted into Swift 3](https://github.com/radianttap/LanguageSwitcher/blob/master/Bundle-AppLocale.swift):
+Maxim Bilan found [neat solution](https://www.factorialcomplexity.com/blog/2015/01/28/how-to-change-localization-internally-in-your-ios-application.html) which I have [converted into Swift](https://github.com/radianttap/LanguageSwitcher/blob/master/Bundle-AppLocale.swift):
 
 * subclass Bundle and override its `localizedString(forKey…)` method to check for `Bundle.main.localizedBundle`
 * force-change the Class of the Bundle.main to be that subclass so our method is called instead of default one _(thanks Objective-C!)_
@@ -82,8 +82,8 @@ Look into the `localize()` method in [demo's ViewController](https://github.com/
 
 If you cache your DateFormatter and NumberFormatter instances - as you certainly should - then on language change you need to [make sure to re-set up](https://github.com/radianttap/LanguageSwitcher/blob/master/LanguageSwitcher/Formatters.swift) Locale and dateFormat values.
 
-* LanguageSwitcher project uses `Main.storyboard` and shows how you can "restart" the app and thus render the changes.
-* LanguageSwitcher2 project builds the UI stack in `AppDelegate` and shows how you can keep the user context and use notifications to inform all the views to re-populate their content using `NSLocalizedString()`
+* `LanguageSwitcher` project uses `Main.storyboard` and shows how you can "restart" the app and thus render the changes.
+* `LanguageSwitcher2` project builds the UI stack in `AppDelegate` and shows how you can keep the user context and use notifications to inform all the views to re-populate their content using `NSLocalizedString()`
 
 
 ### Issues
